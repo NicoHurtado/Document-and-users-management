@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="col-md-6 offset-md-3">
+    <h1>Editar Registro</h1>
+    <br/>
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <div class="form-group">
+            <label for="id_document">Documento:</label>
+            <input type="file" class="form-control-file" id="id_document" name="document">
+        </div>
+
+        <br/>
+        <button type="submit" class="btn btn-secondary">Update Record</button>
+
+    </form>
+</div>
+
+{% endblock %}

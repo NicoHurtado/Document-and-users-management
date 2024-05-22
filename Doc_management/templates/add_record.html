@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="col-md-6 offset-md-3">
+    <h1>Añadir estudiante</h1>
+    <br/>
+
+    <form method="POST" enctype="multipart/form-data" action="{% url 'add_record' %}">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <div class="form-group">
+            <label for="id_document">Documento:</label>
+            <input type="file" class="form-control-file" id="id_document" name="document">
+        </div>
+
+        <br/>
+        <button type="submit" class="btn btn-secondary">Añadir</button>
+        <a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
+
+    </form>
+</div>
+
+{% endblock %}

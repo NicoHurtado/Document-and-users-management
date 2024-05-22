@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="card space">
+    <div class="card-header">
+        <h4 class="card-title mb-0">{{ Estudiante.nombre }} {{ Estudiante.apellido }}</h4>
+    </div>
+    <div class="card-body">
+        <p class="card-text"><strong>Identificación: </strong>{{ Estudiante.cedula }}</p>
+        <p class="card-text"><strong>Edad: </strong>{{ Estudiante.edad }}</p>
+        <p class="card-text"><strong>ID: </strong>{{ Estudiante.id }}</p>
+    </div>
+</div>
+
+<br/><br/>
+<div class="btn-group">
+    <a href="{% url 'home' %}" class="btn btn-secondary">Volver</a>
+    <a href="{% url 'delete_record' Estudiante.id %}" class="btn btn-danger">Eliminar</a>
+    <a href="{% url 'update_record' Estudiante.id %}" class="btn btn-warning">Editar</a>
+</div>
+
+<br/><br/>
+
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title mb-0">Documentos PDF</h5>
+    </div>
+    <div class="card-body">
+        <div class="pdf-links">
+            <br/>
+            <p><strong>Archivos:</strong></p>
+            <ul>
+            {% for archivo in Archivos %}
+                <li><a href="{{ archivo.enlace_compartido }}" target="_blank">{{ archivo.nombre }}</a></li>
+            {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load static %}
+
+<div class="col-md-6 offset-md-3 space">
+<h1>Login as Admin</h1>
+<br/>
+
+<form method="POST" action="{% url 'loginAdmin' %}">
+    {% csrf_token %}
+
+    <div class="mb-3">
+        <input type="text" class="form-control" name="username" placeholder="Nombre de Usuario" required>
+    </div><br/>
+    <div class="mb-3">
+        <input type="password" class="form-control" name="password" placeholder="Contraseña" required>
+    </div>
+    <br/>
+    <button type="submit" class="btn btn-secondary">Ingresar</button>
+
+</form>
+
+
+{% endblock %}
